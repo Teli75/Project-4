@@ -17,13 +17,21 @@ class Phrase {
     const splitPhrase = this.phrase.split("");
 
     const listContainer = document.querySelector('#phrase');
-
+    let html="";
     for (let i=0; i< splitPhrase.length; i++){
-      console.log(i);
-      const html = `
-      <li class="hide">${i} </li>`
+      console.log(splitPhrase[i]);
+      if (splitPhrase[i] == " "){
+        html = `
+        <li class="space"></li>`
+
+      } else{
+      html= `
+      
+      <li class="letter">${splitPhrase[i]} </li>`
+      }
+      
     
-     listContainer.insertAdjacentElement("beforeend", html);
+     listContainer.insertAdjacentHTML("beforeend", html);
     }
     
     //return splitPhrase;
