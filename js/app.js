@@ -20,18 +20,24 @@
 
 
 
-//const phrase = new Phrase('Life is like a box of CHOCOLATES');
-// const phrase2 = new Phrase('I am a table tennis champion');
-// const phrase3 = new Phrase('Working for Intuit is a dream come true');
-// const phrase4= new Phrase('The early bird gets the work');
-// const phrase5 = new Phrase('If it were easy everyone would do it');
-//const phrases= ['Life is like a box of CHOCOLATES', 'I am a table tennis champion', 'Working for Intuit is a dream come true', 'The early bird gets the work', 'if it were easy everyone would do it'];
-//console.log(`Phrase - phrase: ${phrase.phrase}`);
+// game1.phrases.forEach((phrase, index) => {
+// console.log(`Phrase ${index} - phrase: ${phrase.phrase}`);
+// //why doesn't phrase.phrase work?
+// // });
+// const logPhrase = (phrase) => {
+//     console.log(`Phrase - phrase: ${phrase.phrase}`);
+// };
+
+const logPhrase = (phrase) => {
+    console.log(`Phrase - phrase: ${phrase.phrase} `);
+    };
 
 const game = new Game();
+console.log(game.phrases);
 
-game.phrases = ['Life is like a box of CHOCOLATES', 'I am a table tennis champion', 'Working for Intuit is a dream come true', 'The early bird gets the work', 'if it were easy everyone would do it'];
+logPhrase(game.getRandomPhrase());
+logPhrase(game.getRandomPhrase());
+logPhrase(game.getRandomPhrase());
+logPhrase(game.getRandomPhrase());
+logPhrase(game.getRandomPhrase());
 
-game.phrases.forEach((phrase, index) => {
-console.log(`Phrase ${index} - phrase: ${phrase}`);
-});
