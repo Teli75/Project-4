@@ -27,8 +27,8 @@ class Game {
   startGame() {
     //hide the start screen overlay
    
-    this.activePhrase = this.getRandomPhrase();
-    this.activePhrase.addPhraseToDisplay();
+    // this.activePhrase = this.getRandomPhrase();
+    // this.activePhrase.addPhraseToDisplay();
 
     //sets the activePhrase property with the chosen phrase
     

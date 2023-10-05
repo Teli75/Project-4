@@ -7,19 +7,27 @@ class Phrase {
     //this.phrase = phrase.toLowerCase();
     //this.phrase = phrase.map(phrase => phrase.toLowerCase());
     this.phrase = phrase.toString().toLowerCase();
-    this.testVariable = "cow";
+   
   }
 
 /**
  * Display phrase on game board
  */
   addPhraseToDisplay() {
-    //const splitPhrase = this.activePhrase.split("");
-    //const splitPhrase = 'test splitPhrase';
-    return `test addPhraseToDisplay`;
-   
-    //const letters = document.querySelector('#phrase');
+    const splitPhrase = this.phrase.split("");
+
+    const listContainer = document.querySelector('#phrase');
+
+    for (let i=0; i< splitPhrase.length; i++){
+      console.log(i);
+      const html = `
+      <li class="hide">${i} </li>`
     
+     listContainer.insertAdjacentElement("beforeend", html);
+    }
+    
+    //return splitPhrase;
+   
   }
 
 

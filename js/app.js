@@ -23,16 +23,14 @@ const logPhrase = (phrase) => {
     console.log(`Phrase - phrase: ${phrase.phrase} `);
     };
 
-    // const logActivePhrase = (phrase) => {
-    //     console.log(`Phrase - phrase: ${phrase.phrase} `);
-    //     };
-
 const game = new Game();
 console.log(game.phrases);
 
 logPhrase(game.getRandomPhrase());
-game.startGame();
-//this.activePhrase.addPhraseToDisplay() 
+game.activePhrase = game.getRandomPhrase();
+const testReturn = game.activePhrase.addPhraseToDisplay();
+console.log(testReturn);
+
 
 
 
