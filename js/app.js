@@ -19,25 +19,23 @@
 
 
 
-
-// game1.phrases.forEach((phrase, index) => {
-// console.log(`Phrase ${index} - phrase: ${phrase.phrase}`);
-// //why doesn't phrase.phrase work?
-// // });
-// const logPhrase = (phrase) => {
-//     console.log(`Phrase - phrase: ${phrase.phrase}`);
-// };
-
 const logPhrase = (phrase) => {
     console.log(`Phrase - phrase: ${phrase.phrase} `);
     };
+
+    // const logActivePhrase = (phrase) => {
+    //     console.log(`Phrase - phrase: ${phrase.phrase} `);
+    //     };
 
 const game = new Game();
 console.log(game.phrases);
 
 logPhrase(game.getRandomPhrase());
-logPhrase(game.getRandomPhrase());
-logPhrase(game.getRandomPhrase());
-logPhrase(game.getRandomPhrase());
-logPhrase(game.getRandomPhrase());
+game.startGame();
+//this.activePhrase.addPhraseToDisplay() 
+
+
+
+
+
 

@@ -7,13 +7,26 @@ class Phrase {
     //this.phrase = phrase.toLowerCase();
     //this.phrase = phrase.map(phrase => phrase.toLowerCase());
     this.phrase = phrase.toString().toLowerCase();
+    this.testVariable = "cow";
   }
 
-  //adds letter placeholders to display when the game starts
-  addPhraseToDisplay() {}
+/**
+ * Display phrase on game board
+ */
+  addPhraseToDisplay() {
+    //const splitPhrase = this.activePhrase.split("");
+    //const splitPhrase = 'test splitPhrase';
+    return `test addPhraseToDisplay`;
+   
+    //const letters = document.querySelector('#phrase');
+    
+  }
+
 
   //Checks if letter selected by the player matches a letter in phrase
-  checkLetter() {}
+  checkLetter() {
+    return 'test';
+  }
 
   //reveals matching letters
   showMatchedLetter() {
