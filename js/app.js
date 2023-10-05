@@ -24,12 +24,15 @@ const logPhrase = (phrase) => {
     };
 
 const game = new Game();
-console.log(game.phrases);
 
-logPhrase(game.getRandomPhrase());
-game.activePhrase = game.getRandomPhrase();
-const testReturn = game.activePhrase.addPhraseToDisplay();
-console.log(testReturn);
+game.startGame();
+console.log(game.phrases);
+console.log(`Active phrase - phrase: ${game.activePhrase.phrase})`);
+
+// logPhrase(game.getRandomPhrase());
+// game.activePhrase = game.getRandomPhrase();
+// const testReturn = game.activePhrase.addPhraseToDisplay();
+// console.log(testReturn);
 
 
 

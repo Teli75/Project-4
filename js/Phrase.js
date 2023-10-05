@@ -19,7 +19,6 @@ class Phrase {
     const listContainer = document.querySelector('#phrase');
     let html="";
     for (let i=0; i< splitPhrase.length; i++){
-      console.log(splitPhrase[i]);
       if (splitPhrase[i] == " "){
         html = `
         <li class="space"></li>`
