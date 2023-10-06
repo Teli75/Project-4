@@ -27,7 +27,7 @@ class Game {
   startGame() {
     const startScreenOverlay = document.querySelector('#overlay');
     console.log(startScreenOverlay);
-    //startScreenOverlay.hidden = 'true';
+    //startScreenOverlay.hidden = true; don't understand why hidden property doesn't work
     startScreenOverlay.style.display= 'none';
    this.activePhrase = this.getRandomPhrase();
     this.activePhrase.addPhraseToDisplay();

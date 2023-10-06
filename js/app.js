@@ -5,6 +5,18 @@
 //Event listeners, enable user interaction with game
 //Instantiate a new instance of the Game class to initiate the games functionality
 
+//<button id="btn__reset">Start Game</button>
+const resetButton = document.querySelector('#btn__reset');
+
+let game;
+console.log(resetButton);
+resetButton.addEventListener('click', (event) => {
+    console.log('test click');
+    game = new Game();
+    console.log(game);
+    game.startGame();
+});
+
 //1. Add a click event listener to the "Start Game" button 
 //which creates a new Game object and starts the game by calling the startGame() method.
 
@@ -19,15 +31,15 @@
 
 
 
-const logPhrase = (phrase) => {
-    console.log(`Phrase - phrase: ${phrase.phrase} `);
-    };
+// const logPhrase = (phrase) => {
+//     console.log(`Phrase - phrase: ${phrase.phrase} `);
+//     };
 
-const game = new Game();
+//const game = new Game();
 
-game.startGame();
-console.log(game.phrases);
-console.log(`Active phrase - phrase: ${game.activePhrase.phrase})`);
+// game.startGame();
+// console.log(game.phrases);
+// console.log(`Active phrase - phrase: ${game.activePhrase.phrase})`);
 
 // logPhrase(game.getRandomPhrase());
 // game.activePhrase = game.getRandomPhrase();
