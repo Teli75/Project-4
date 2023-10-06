@@ -12,7 +12,6 @@ let game;
 //console.log(resetButton);
 resetButton.addEventListener('click', (event) => {
     game = new Game();
-    
     game.startGame();
    
 });

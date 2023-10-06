@@ -12,7 +12,7 @@ class Phrase {
   /**
    * Display phrase on game board
    */
- 
+
   addPhraseToDisplay() {
     const splitPhrase = this.phrase.split("");
 
@@ -31,7 +31,6 @@ class Phrase {
 
       listContainer.insertAdjacentHTML("beforeend", html);
     }
-    
   }
 
   /**
@@ -39,45 +38,26 @@ class Phrase {
    * *@param (string) letter = Letter to check
    */
   checkLetter(buttonClicked) {
-    const splitPhrase = this.phrase.split("");
-
-    console.log('checkLetter()');
+    console.log("checkLetter()");
     console.log(`button clicked innerHTML ${buttonClicked.innerHTML}`);
 
-    //try comparing the button clicked against the li ElementInternals
-    
-    const listContainer = document.querySelectorAll("#phrase ul li");
-    console.log(listContainer);
-    const listArray = [...listContainer];
-    console.log(listArray);
-    listArray.forEach( element => {
-      console.log(element.innerHTML);
-      if(buttonClicked.innerHTML == element.innerHTML){
-        console.log('button matches phrase character');
-      }
+    // const listContainer = document.querySelectorAll("#phrase ul li");
+    // console.log(listContainer);
+    // const listArray = [...listContainer];
+    // console.log(listArray);
+    // listArray.forEach((listItem) => {
+    //   console.log(listItem.innerHTML);
+    //   if (buttonClicked.innerHTML.trim().includes(listItem.innerHTML.trim())) {
+    //     console.log("button matches phrase character");
+    //   }
+    // });
+
+    if (this.phrase.includes(buttonClicked.innerHTML)){
+      return true;
+    } else {
+      return false;
     }
-    )
     
-
-    
-    //   if (buttonClicked.innerHTML == listContainer.innerHTML) {
-    //     console.log('we have a match');
-    //     const matchingLetters = `letter ${i} ${splitPhrase[i]}`;
-    //     this.showMatchedLetter(matchingLetters);
-    //   } else {
-    //     //call remove life method
-    //   }
-    // }
-
-    // for (let i = 0; i < splitPhrase.length; i++) {
-    //   if (buttonClicked.innerHTML == splitPhrase[i]) {
-    //     console.log('we have a match');
-    //     const matchingLetters = `letter ${i} ${splitPhrase[i]}`;
-    //     this.showMatchedLetter(matchingLetters);
-    //   } else {
-    //     //call remove life method
-    //   }
-    //}
   }
 
   /**
@@ -88,12 +68,12 @@ class Phrase {
     const splitPhrase = this.phrase.split("");
     const listContainer = document.querySelector("#phrase ul");
 
-    for (let i=0; splitPhrase.length; i++ ){
-    console.log(`matchingLetters ${matchingLetters}`);
+    for (let i = 0; splitPhrase.length; i++) {
+      console.log(`matchingLetters ${matchingLetters}`);
     }
-    
+
     //iterate through the li elements looking for the letter that matches the letter button clicked
-    //select all DOM elements that have css classname that matches selected letter and 
+    //select all DOM elements that have css classname that matches selected letter and
     //replace each selected element's hide CSS class with show CSS class.
     /*`showMatchedLetter()`: Reveals the letter(s) on the board that matches the
 player's selection. To reveal the matching letter(s), select all of the letter DOM

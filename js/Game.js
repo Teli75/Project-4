@@ -40,22 +40,21 @@ class Game {
   getRandomPhrase() {
     //returns a phrase object
     let randomNum = Math.floor(Math.random() * this.phrases.length);
-    console.log(this.phrases[randomNum]);
     return this.phrases[randomNum];
   }
 
   //checks if button clicked matches a letter in phrase
   handleInteraction(buttonClicked) {
     console.log('handleInteraction');
-    game.activePhrase.checkLetter(buttonClicked);
-    ////Disable the selected letter’s onscreen keyboard button, so that letter can't be chosen again.
-    //if(checkLetter) is true{
-      //add chosen class to keyboard button
-      //call showMatchedLeter()
+    this.activePhrase.checkLetter(buttonClicked);
+    ////buttonClick.disabled = true;
+    //if(activePhrase.checkLetter(buttonClicked)) is true{
+      //buttonClicked.classList.add('chosen');
+      //this.activePhrase.showMatchedLeter(buttonClicked)
       //call checkForWin();
     //} else {
-      //add wrong class to the keyboard button
-      //call removeLife();
+      //buttonClicked.classList.add('wrong');
+      //this.removeLife();
 
     //}
 
@@ -65,10 +64,12 @@ class Game {
   //removed a life from scoreboard by replacing hearts
   removeLife() {
     //replace liveHeart with lostHeart
+    //let hearts = document.querySelector('img');
+    
     //increments the missed property
     //if( missedGuess > 5){
-    gameOver();
-    this.startGame.style.display='block';
+    // gameOver();
+    // this.startGame.style.display='block';
   }
 
   //Checks if all letters have been revealed
