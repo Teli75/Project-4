@@ -11,7 +11,6 @@ const resetButton = document.querySelector('#btn__reset');
 let game;
 //console.log(resetButton);
 resetButton.addEventListener('click', (event) => {
-    console.log('test click');
     game = new Game();
     
     game.startGame();
@@ -19,17 +18,16 @@ resetButton.addEventListener('click', (event) => {
 });
 
 const letterButton = document.querySelector('#qwerty');
-
+    //handleInteraction() is called when buttons are clicked
     letterButton.addEventListener('click', (e) => {
         const buttonClicked = e.target;
         if (buttonClicked){
-          game.handleInteraction();
+          game.handleInteraction(buttonClicked);
         }
     });
 
-
-//2. Add click event listeners to each of the onscreen keyboard buttons, so that clicking a button calls the handleInteraction()
-// method on the Game object. Event delegation can also be used in order to avoid having to add an event listener to each individual keyboard button.
+//Event delegation can also be used in order to avoid having to add an event listener to each individual 
+//keyboard button.
 // Clicking the space between and around the onscreen keyboard buttons should not result in the handleInteraction() method being called.
 
 //Resetting the gameboard between games

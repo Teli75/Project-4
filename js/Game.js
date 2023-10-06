@@ -10,7 +10,7 @@ class Game {
     this.phrases = [
       new Phrase("Life is like a box of CHOCOLATES"),
       new Phrase("I am a table tennis champion"),
-      new Phrase("Working for Intuit is a dream come true"),
+      new Phrase("Thank you Intuit and AnitaB"),
       new Phrase("The early bird gets the work"),
       new Phrase("if it were easy everyone would do it"),
     ];
@@ -30,7 +30,7 @@ class Game {
     startScreenOverlay.style.display= 'none';
    this.activePhrase = this.getRandomPhrase();
     this.activePhrase.addPhraseToDisplay();
-    game.handleInteraction();
+   
   }
   /**
      * Selects random phrase from phrases property
@@ -40,23 +40,26 @@ class Game {
   getRandomPhrase() {
     //returns a phrase object
     let randomNum = Math.floor(Math.random() * this.phrases.length);
+    console.log(this.phrases[randomNum]);
     return this.phrases[randomNum];
   }
 
   //checks if button clicked matches a letter in phrase
-  handleInteraction() {
-    console.log(`handleInteraction was called`);
-    //<div id="qwerty" class="section">
-    // const letterButton = document.querySelector('#qwerty');
+  handleInteraction(buttonClicked) {
+    console.log('handleInteraction');
+    game.activePhrase.checkLetter(buttonClicked);
+    ////Disable the selected letter’s onscreen keyboard button, so that letter can't be chosen again.
+    //if(checkLetter) is true{
+      //add chosen class to keyboard button
+      //call showMatchedLeter()
+      //call checkForWin();
+    //} else {
+      //add wrong class to the keyboard button
+      //call removeLife();
 
-    // letterButton.addEventListener('click', (e) => {
-    //     const buttonClicked = e.target;
-    //     if (buttonClicked){
-    //       //function that checks
-    //     }
-    // });
-    // This method should:
-    //Disable the selected letter’s onscreen keyboard button.
+    //}
+
+    
   }
 
   //removed a life from scoreboard by replacing hearts
@@ -69,7 +72,11 @@ class Game {
   }
 
   //Checks if all letters have been revealed
-  checkForWin() {}
+  checkForWin() {
+    //if (win){
+      //gameOver();
+   // }
+  }
 
   //displays original start screen and updates h1 with approrpiate message
   gameOver() {
