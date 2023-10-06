@@ -46,7 +46,7 @@ class Game {
      
     if (isLetterInPhrase) {
       chosenLetter.classList.add("chosen");
-      this.activePhrase.showMatchedLetter(chosenLetter);
+      this.activePhrase.showMatchedLetter(chosenLetter.innerText);
 
       if (this.checkForWin()) {
         //do something
@@ -77,9 +77,32 @@ class Game {
    * @return {boolean} True if game has been won, false if game wasn't won
    */
   checkForWin() {
-    //if (win){
-    //gameOver();
-    // }
+    //iterate through list items in the ul to see if they all have the show class
+    const listContainer = document.querySelectorAll("#phrase ul li");
+    const listArray = [...listContainer];
+    console.log(listArray);
+    //const filteredArray = listArray.filter(listItem => {listItem.classList.contains("letter")});
+    //const filteredArray = listArray.filter(listItem => {listItem.show});
+    //console.log(filteredArray);
+
+    //if (listItem.classList.contains("show"))
+    
+
+    listArray.forEach(listItem =>{
+      console.log(listItem);
+    });
+    // let counter= 0;
+    // filteredArray.forEach( listItem => {
+    //   if(listItem.classList.contains('show')){
+    //     console.log(listItem)
+    //     counter += 1;
+    //   }
+    // });
+    // console.log(counter);
+    // console.log(filteredArray.length);
+    //   if (counter == filteredArray.length){
+    //     console.log("You Win");
+    //   }
   }
   /**
    * Displays game over message

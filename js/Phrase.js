@@ -57,7 +57,7 @@ class Phrase {
 
     //Iterate through list items to change class for any letters that match
     listArray.forEach((listItem) => {
-      if (chosenLetter.innerText === listItem.innerText) {
+      if (chosenLetter === listItem.innerText) {
         console.log(`chosen letter " ${listItem.innerText} "`);
         listItem.classList.remove("letter");
         listItem.classList.add("show");
