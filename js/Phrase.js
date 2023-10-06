@@ -17,7 +17,6 @@ class Phrase {
     const splitPhrase = this.phrase.split("");
 
     const listContainer = document.querySelector("#phrase ul");
-    console.log(listContainer);
     let html = "";
     for (let i = 0; i < splitPhrase.length; i++) {
       if (splitPhrase[i] == " ") {
@@ -37,53 +36,34 @@ class Phrase {
    * Checks if passed letter is in phrase
    * *@param (string) letter = Letter to check
    */
-  checkLetter(buttonClicked) {
-    console.log("checkLetter()");
-    console.log(`button clicked innerHTML ${buttonClicked}`);
-    
-
-    // const listContainer = document.querySelectorAll("#phrase ul li");
-    // console.log(listContainer);
-    // const listArray = [...listContainer];
-    // console.log(listArray);
-    // listArray.forEach((listItem) => {
-    //   console.log(listItem.innerHTML);
-    //   if (buttonClicked.innerHTML.trim().includes(listItem.innerHTML.trim())) {
-    //     console.log("button matches phrase character");
-    //   }
-    // });
-
-    if (this.phrase.includes(buttonClicked)){
+  checkLetter(chosenLetter) {
+    console.log(`Entered checkLetter() with the letter ${chosenLetter}`);
+    if (this.phrase.includes(chosenLetter)) {
       return true;
     } else {
       return false;
     }
-    
   }
-
   /**
    * Displays passed letter on screen after a match is found
    * @param (string) letter - Letter to display
    */
-  showMatchedLetter(matchingLetter) {
-    
-     const listContainer = document.querySelectorAll("#phrase ul li");
-    console.log(listContainer);
+  showMatchedLetter(chosenLetter) {
+    const listContainer = document.querySelectorAll("#phrase ul li");
     const listArray = [...listContainer];
-    console.log(listArray);
+
+    //if (this.checkLetter(chosenLetter)) {
+    //console.log("true, the letter is checked");
+
+    //Iterate through list items to change class for any letters that match
     listArray.forEach((listItem) => {
-      console.log(listItem.innerText);
-      console.log(`mathcing letter ${matchingLetter.innerText}`);
-      if (matchingLetter.innerText === listItem.innerText) {
-        console.log("button matches phrase character");
+      if (chosenLetter.innerText === listItem.innerText) {
+        console.log(`chosen letter " ${listItem.innerText} "`);
+        listItem.classList.remove("letter");
+        listItem.classList.add("show");
       }
     });
 
-    // for (let i = 0; splitPhrase.length; i++) {
-    //   console.log(`matchingLetters ${matchingLetters}`);
-    // }
-
-    //iterate through the li elements looking for the letter that matches the letter button clicked
     //select all DOM elements that have css classname that matches selected letter and
     //replace each selected element's hide CSS class with show CSS class.
     /*`showMatchedLetter()`: Reveals the letter(s) on the board that matches the
