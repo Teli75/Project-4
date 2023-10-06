@@ -15,7 +15,7 @@ class Phrase {
 
   addPhraseToDisplay() {
     const splitPhrase = this.phrase.split("");
-
+    console.log(splitPhrase);
     const listContainer = document.querySelector("#phrase ul");
     let html = "";
     for (let i = 0; i < splitPhrase.length; i++) {
@@ -52,14 +52,10 @@ class Phrase {
     const listContainer = document.querySelectorAll("#phrase ul li");
     const listArray = [...listContainer];
 
-    //if (this.checkLetter(chosenLetter)) {
-    //console.log("true, the letter is checked");
-
-    //Iterate through list items to change class for any letters that match
     listArray.forEach((listItem) => {
       if (chosenLetter === listItem.innerText) {
         console.log(`chosen letter " ${listItem.innerText} "`);
-        listItem.classList.remove("letter");
+        
         listItem.classList.add("show");
       }
     });

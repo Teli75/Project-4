@@ -49,6 +49,7 @@ class Game {
       this.activePhrase.showMatchedLetter(chosenLetter.innerText);
 
       if (this.checkForWin()) {
+        console.log('check for win is true');
         //do something
       }
     } else {
@@ -77,33 +78,36 @@ class Game {
    * @return {boolean} True if game has been won, false if game wasn't won
    */
   checkForWin() {
-    //iterate through list items in the ul to see if they all have the show class
-    const listContainer = document.querySelectorAll("#phrase ul li");
-    const listArray = [...listContainer];
-    console.log(listArray);
+    const listContainer = document.querySelectorAll("#phrase ul li.letter");
+   
+    let showFalse= true;
+    console.log(listContainer);
+    listContainer.forEach(listItem => {
+      if(!listItem.classList.contains("show")){
+        console.log(listItem);
+        showFalse = false;
+      }
+    });
+      if (showFalse == true){
+        return true;
+      } else{
+        return false;
+      }
+    }Ï
+      
+
+      
+
+
+   
     //const filteredArray = listArray.filter(listItem => {listItem.classList.contains("letter")});
-    //const filteredArray = listArray.filter(listItem => {listItem.show});
     //console.log(filteredArray);
 
-    //if (listItem.classList.contains("show"))
     
+   
 
-    listArray.forEach(listItem =>{
-      console.log(listItem);
-    });
-    // let counter= 0;
-    // filteredArray.forEach( listItem => {
-    //   if(listItem.classList.contains('show')){
-    //     console.log(listItem)
-    //     counter += 1;
-    //   }
-    // });
-    // console.log(counter);
-    // console.log(filteredArray.length);
-    //   if (counter == filteredArray.length){
-    //     console.log("You Win");
-    //   }
-  }
+  
+  
   /**
    * Displays game over message
    * @param {boolean} gameWon - Whether or not the user won the game
