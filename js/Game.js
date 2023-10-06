@@ -5,7 +5,6 @@
 class Game {
   constructor() {
     //missed: used to track the number of missed guesses by the player. The initial value is 0, since no guesses have been made at the start of the game.
-   this.gameTestVariable = 'testing game variable';
    this.missed = 0;
     //phrases: an array of five Phrase objects to use with the game. A phrase should only include letters and spaces— no numbers, punctuation or other special characters.
     this.phrases = [
@@ -31,19 +30,12 @@ class Game {
     startScreenOverlay.style.display= 'none';
    this.activePhrase = this.getRandomPhrase();
     this.activePhrase.addPhraseToDisplay();
-    //hide the start screen overlay
-   
-    // this.activePhrase = this.getRandomPhrase();
-    // this.activePhrase.addPhraseToDisplay();
-
-    //sets the activePhrase property with the chosen phrase
-    
-
+  }
   /**
      * Selects random phrase from phrases property
      * @return {Object} Phrase object chosen to be used
      */
-  }
+  
   getRandomPhrase() {
     //returns a phrase object
     let randomNum = Math.floor(Math.random() * this.phrases.length);
@@ -52,6 +44,15 @@ class Game {
 
   //checks if button clicked matches a letter in phrase
   handleInteraction() {
+    //<div id="qwerty" class="section">
+    const letterButton = document.querySelector('#qwerty');
+
+    letterButton.addEventListener('click', (e) => {
+        const buttonClicked = e.target;
+        if (buttonClicked){
+          //function that checks
+        }
+    });
     // This method should:
     //Disable the selected letter’s onscreen keyboard button.
   }
@@ -62,6 +63,7 @@ class Game {
     //increments the missed property
     //if( missedGuess > 5){
     gameOver();
+    this.startGame.style.display='block';
   }
 
   //Checks if all letters have been revealed
