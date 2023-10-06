@@ -12,6 +12,7 @@ class Phrase {
   /**
    * Display phrase on game board
    */
+ 
   addPhraseToDisplay() {
     const splitPhrase = this.phrase.split("");
 
@@ -29,7 +30,7 @@ class Phrase {
 
       listContainer.insertAdjacentHTML("beforeend", html);
     }
-    splitPhrase.handleInteraction();
+    
   }
 
   /**
@@ -37,6 +38,8 @@ class Phrase {
    * *@param (string) letter = Letter to check
    */
   checkLetter() {
+    const splitPhrase = this.phrase.split("");
+
     for (let i = 0; i < splitPhrase; i++) {
       if (buttonClicked.innerHTML == splitPhrase[i]) {
         //callShowMatchedLetter

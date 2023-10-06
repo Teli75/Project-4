@@ -30,6 +30,7 @@ class Game {
     startScreenOverlay.style.display= 'none';
    this.activePhrase = this.getRandomPhrase();
     this.activePhrase.addPhraseToDisplay();
+    game.handleInteraction();
   }
   /**
      * Selects random phrase from phrases property
@@ -44,15 +45,16 @@ class Game {
 
   //checks if button clicked matches a letter in phrase
   handleInteraction() {
+    console.log(`handleInteraction was called`);
     //<div id="qwerty" class="section">
-    const letterButton = document.querySelector('#qwerty');
+    // const letterButton = document.querySelector('#qwerty');
 
-    letterButton.addEventListener('click', (e) => {
-        const buttonClicked = e.target;
-        if (buttonClicked){
-          //function that checks
-        }
-    });
+    // letterButton.addEventListener('click', (e) => {
+    //     const buttonClicked = e.target;
+    //     if (buttonClicked){
+    //       //function that checks
+    //     }
+    // });
     // This method should:
     //Disable the selected letter’s onscreen keyboard button.
   }

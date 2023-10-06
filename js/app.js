@@ -15,9 +15,17 @@ resetButton.addEventListener('click', (event) => {
     game = new Game();
     
     game.startGame();
-    console.log(game.activePhrase.getRandomPhrase());
+   
 });
 
+const letterButton = document.querySelector('#qwerty');
+
+    letterButton.addEventListener('click', (e) => {
+        const buttonClicked = e.target;
+        if (buttonClicked){
+          game.handleInteraction();
+        }
+    });
 
 
 //2. Add click event listeners to each of the onscreen keyboard buttons, so that clicking a button calls the handleInteraction()
