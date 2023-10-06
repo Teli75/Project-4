@@ -39,7 +39,8 @@ class Phrase {
    */
   checkLetter(buttonClicked) {
     console.log("checkLetter()");
-    console.log(`button clicked innerHTML ${buttonClicked.innerHTML}`);
+    console.log(`button clicked innerHTML ${buttonClicked}`);
+    
 
     // const listContainer = document.querySelectorAll("#phrase ul li");
     // console.log(listContainer);
@@ -52,7 +53,7 @@ class Phrase {
     //   }
     // });
 
-    if (this.phrase.includes(buttonClicked.innerHTML)){
+    if (this.phrase.includes(buttonClicked)){
       return true;
     } else {
       return false;
@@ -64,13 +65,23 @@ class Phrase {
    * Displays passed letter on screen after a match is found
    * @param (string) letter - Letter to display
    */
-  showMatchedLetter(matchingLetters) {
-    const splitPhrase = this.phrase.split("");
-    const listContainer = document.querySelector("#phrase ul");
+  showMatchedLetter(matchingLetter) {
+    
+     const listContainer = document.querySelectorAll("#phrase ul li");
+    console.log(listContainer);
+    const listArray = [...listContainer];
+    console.log(listArray);
+    listArray.forEach((listItem) => {
+      console.log(listItem.innerText);
+      console.log(`mathcing letter ${matchingLetter.innerText}`);
+      if (matchingLetter.innerText === listItem.innerText) {
+        console.log("button matches phrase character");
+      }
+    });
 
-    for (let i = 0; splitPhrase.length; i++) {
-      console.log(`matchingLetters ${matchingLetters}`);
-    }
+    // for (let i = 0; splitPhrase.length; i++) {
+    //   console.log(`matchingLetters ${matchingLetters}`);
+    // }
 
     //iterate through the li elements looking for the letter that matches the letter button clicked
     //select all DOM elements that have css classname that matches selected letter and

@@ -40,23 +40,32 @@ class Game {
   getRandomPhrase() {
     //returns a phrase object
     let randomNum = Math.floor(Math.random() * this.phrases.length);
+    console.log(this.phrases[randomNum]);
     return this.phrases[randomNum];
   }
 
   //checks if button clicked matches a letter in phrase
   handleInteraction(buttonClicked) {
     console.log('handleInteraction');
-    this.activePhrase.checkLetter(buttonClicked);
-    ////buttonClick.disabled = true;
-    //if(activePhrase.checkLetter(buttonClicked)) is true{
-      //buttonClicked.classList.add('chosen');
-      //this.activePhrase.showMatchedLeter(buttonClicked)
-      //call checkForWin();
-    //} else {
-      //buttonClicked.classList.add('wrong');
-      //this.removeLife();
 
-    //}
+    const isLetterInPhrase =  this.activePhrase.checkLetter(buttonClicked.innerHTML);
+    this.activePhrase.checkLetter(buttonClicked.innerHTML);
+    console.log(isLetterInPhrase);
+
+    if (isLetterInPhrase){
+      buttonClicked.classList.add('chosen');
+      this.activePhrase.showMatchedLetter(buttonClicked)
+
+      if (this.checkForWin()){
+          //do something
+      }
+   
+    }
+     else {
+      buttonClicked.classList.add('wrong');
+      this.removeLife();
+    }
+    buttonClicked.disabled = true;
 
     
   }
