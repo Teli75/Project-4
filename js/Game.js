@@ -34,7 +34,6 @@ class Game {
   getRandomPhrase() {
     //returns a phrase object
     let randomNum = Math.floor(Math.random() * this.phrases.length);
-    console.log(this.phrases[randomNum]);
     return this.phrases[randomNum];
   }
 
@@ -66,7 +65,6 @@ class Game {
    * Checks if player has remaining lives and ends game if player is out
    */
   removeLife(gameWon) {
-    console.log(`start this.removeLife()`);
     const liveHeart = document.querySelector('img[src="images/liveHeart.png"]');
     
     if (liveHeart){
@@ -75,7 +73,7 @@ class Game {
     this.missed += 1;
     if(this.missed >= 5 ){
       this.gameOver(gameWon);
-      console.log('game over');
+
     }
       //iterate through live hearts. If heart is live, change the src on the next sibling
     }

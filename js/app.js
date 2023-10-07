@@ -43,7 +43,7 @@ function resetBoard() {
   ulElement.innerHTML = "";
 
   const keyboard = document.querySelectorAll(".key");
-  console.log(keyboard);
+
   keyboard.forEach((key) => {
     key.classList.remove("wrong");
     key.classList.remove("chosen");
