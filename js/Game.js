@@ -11,7 +11,7 @@ class Game {
       new Phrase("Joe Toe"),
       new Phrase("dot not"),
       new Phrase("fog jog"),
-      new Phrase("sing song"),
+      new Phrase("pal sal"),
     ];
     this.activePhrase = null;
   }
@@ -49,11 +49,13 @@ class Game {
       this.activePhrase.showMatchedLetter(chosenLetter.innerText);
 
       if (this.checkForWin()) {
-        this.gameOver();
+        let gameWon = true;
+        this.gameOver(gameWon);
       }
     } else {
       chosenLetter.classList.add("wrong");
-      this.removeLife();
+      let gameWon = false;
+      this.removeLife(gameWon);
     }
     chosenLetter.disabled = true;
   }
@@ -63,7 +65,7 @@ class Game {
    * Removes a life from the scoreboard
    * Checks if player has remaining lives and ends game if player is out
    */
-  removeLife() {
+  removeLife(gameWon) {
     console.log(`start this.removeLife()`);
     const liveHeart = document.querySelector('img[src="images/liveHeart.png"]');
     
@@ -72,19 +74,13 @@ class Game {
     }
     this.missed += 1;
     if(this.missed >= 5 ){
-      this.gameOver();
+      this.gameOver(gameWon);
       console.log('game over');
     }
-      
-
       //iterate through live hearts. If heart is live, change the src on the next sibling
     }
 
 
-
-    //increments the missed property
-    //if( missedGuess > 5){
-    // gameOver();
     // this.startGame.style.display='block';
   
 
@@ -113,7 +109,21 @@ class Game {
    * @param {boolean} gameWon - Whether or not the user won the game
    */
   gameOver(gameWon) {
-    //replaces the overlay start CSS class with either the WIN or LOSE class
-    console.log("gameOver function has been entered");
+    const startScreenOverlay = document.querySelector("#overlay");
+    const message = document.querySelector("h1");
+
+    startScreenOverlay.style.display='block';
+    if (gameWon){
+      startScreenOverlay.classList.remove('start');
+      startScreenOverlay.classList.add('win');
+      message.innerHTML= "Great job!";
+
+    }else {
+      startScreenOverlay.classList.remove('start');
+      startScreenOverlay.classList.add('lose');
+      message.innerHTML= "Sorry, better luck next time!";
+    }
+    //this.startGame();
+
   }
 }
