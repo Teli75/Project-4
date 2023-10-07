@@ -7,11 +7,11 @@ class Game {
     //missed: used to track the number of missed guesses by the player. The initial value is 0, since no guesses have been made at the start of the game.
     this.missed = 0;
     this.phrases = [
-      new Phrase("Life is like a box of CHOCOLATES"),
-      new Phrase("I am a table tennis champion"),
-      new Phrase("Thank you Intuit and AnitaB"),
-      new Phrase("The early bird gets the work"),
-      new Phrase("if it were easy everyone would do it"),
+      new Phrase("Not hot"),
+      new Phrase("Joe Toe"),
+      new Phrase("dot not"),
+      new Phrase("fog jog"),
+      new Phrase("sing song"),
     ];
     this.activePhrase = null;
   }
@@ -43,14 +43,13 @@ class Game {
     const isLetterInPhrase = this.activePhrase.checkLetter(
       chosenLetter.innerHTML
     );
-     
+
     if (isLetterInPhrase) {
       chosenLetter.classList.add("chosen");
       this.activePhrase.showMatchedLetter(chosenLetter.innerText);
 
       if (this.checkForWin()) {
-        console.log('check for win is true');
-        //do something
+        this.gameOver();
       }
     } else {
       chosenLetter.classList.add("wrong");
@@ -59,60 +58,62 @@ class Game {
     chosenLetter.disabled = true;
   }
 
- /**
-  * Increases the value of the missed property
-  * Removes a life from the scoreboard
-  * Checks if player has remaining lives and ends game if player is out
-  */
+  /**
+   * Increases the value of the missed property
+   * Removes a life from the scoreboard
+   * Checks if player has remaining lives and ends game if player is out
+   */
   removeLife() {
-    //replace liveHeart with lostHeart
-    //let hearts = document.querySelector('img');
+    console.log(`start this.removeLife()`);
+    const liveHeart = document.querySelector('img[src="images/liveHeart.png"]');
+    
+    if (liveHeart){
+      liveHeart.src = "images/lostHeart.png"
+    }
+    this.missed += 1;
+    if(this.missed >= 5 ){
+      this.gameOver();
+      console.log('game over');
+    }
+      
+
+      //iterate through live hearts. If heart is live, change the src on the next sibling
+    }
+
+
+
     //increments the missed property
     //if( missedGuess > 5){
     // gameOver();
     // this.startGame.style.display='block';
-  }
+  
 
   /**
    * Checks for winning move
    * @return {boolean} True if game has been won, false if game wasn't won
    */
+
   checkForWin() {
     const listContainer = document.querySelectorAll("#phrase ul li.letter");
-   
-    let showFalse= true;
-    console.log(listContainer);
-    listContainer.forEach(listItem => {
-      if(!listItem.classList.contains("show")){
-        console.log(listItem);
-        showFalse = false;
+    let allShown = true;
+
+    // check each letter to see if it has the show class, mark allShown false if any do not
+    listContainer.forEach((listItem) => {
+      if (!listItem.classList.contains("show")) {
+        allShown = false;
       }
     });
-      if (showFalse == true){
-        return true;
-      } else{
-        return false;
-      }
-    }Ï
-      
 
-      
+    // return based on allShown status
+    return allShown;
+  }
 
-
-   
-    //const filteredArray = listArray.filter(listItem => {listItem.classList.contains("letter")});
-    //console.log(filteredArray);
-
-    
-   
-
-  
-  
   /**
    * Displays game over message
    * @param {boolean} gameWon - Whether or not the user won the game
    */
   gameOver(gameWon) {
     //replaces the overlay start CSS class with either the WIN or LOSE class
+    console.log("gameOver function has been entered");
   }
 }

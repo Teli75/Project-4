@@ -15,7 +15,7 @@ class Phrase {
 
   addPhraseToDisplay() {
     const splitPhrase = this.phrase.split("");
-    console.log(splitPhrase);
+
     const listContainer = document.querySelector("#phrase ul");
     let html = "";
     for (let i = 0; i < splitPhrase.length; i++) {
@@ -37,7 +37,6 @@ class Phrase {
    * *@param (string) letter = Letter to check
    */
   checkLetter(chosenLetter) {
-    console.log(`Entered checkLetter() with the letter ${chosenLetter}`);
     if (this.phrase.includes(chosenLetter)) {
       return true;
     } else {
@@ -54,8 +53,7 @@ class Phrase {
 
     listArray.forEach((listItem) => {
       if (chosenLetter === listItem.innerText) {
-        console.log(`chosen letter " ${listItem.innerText} "`);
-        
+
         listItem.classList.add("show");
       }
     });
