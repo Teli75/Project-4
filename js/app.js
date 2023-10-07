@@ -16,9 +16,12 @@ resetButton.addEventListener("click", (event) => {
 const letterButton = document.querySelector("#qwerty");
 //handleInteraction() is called when buttons are clicked
 letterButton.addEventListener("click", (e) => {
-  const chosenLetter = e.target;
-  if (chosenLetter) {
-    game.handleInteraction(chosenLetter);
+    const chosenLetter = e.target;
+  if (chosenLetter.tagName === "BUTTON") {
+    
+    if (chosenLetter) {
+      game.handleInteraction(chosenLetter);
+    }
   }
 });
 
@@ -32,10 +35,10 @@ letterButton.addEventListener("click", (e) => {
 //* Reset all of the heart images (i.e. the player's lives) in the scoreboard at the bottom of the gameboard to display the liveHeart.png image.
 
 function resetBoard() {
-    const startScreenOverlay = document.querySelector('#overlay');
-    startScreenOverlay.classList.remove('win');
-    startScreenOverlay.classList.remove('lose');
-    startScreenOverlay.classList.add("start");
+  const startScreenOverlay = document.querySelector("#overlay");
+  startScreenOverlay.classList.remove("win");
+  startScreenOverlay.classList.remove("lose");
+  startScreenOverlay.classList.add("start");
   const ulElement = document.querySelector("#phrase ul");
   ulElement.innerHTML = "";
 
