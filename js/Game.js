@@ -123,7 +123,7 @@ class Game {
       startScreenOverlay.classList.add('lose');
       message.innerHTML= "Sorry, better luck next time!";
     }
-    //this.startGame();
+   
 
   }
 }
