@@ -16,23 +16,13 @@ resetButton.addEventListener("click", (event) => {
 const letterButton = document.querySelector("#qwerty");
 //handleInteraction() is called when buttons are clicked
 letterButton.addEventListener("click", (e) => {
-    const chosenLetter = e.target;
+  const chosenLetter = e.target;
   if (chosenLetter.tagName === "BUTTON") {
-    
     if (chosenLetter) {
       game.handleInteraction(chosenLetter);
     }
   }
 });
-
-//Event delegation can also be used in order to avoid having to add an event listener to each individual
-//keyboard button.
-// Clicking the space between and around the onscreen keyboard buttons should not result in the handleInteraction() method being called.
-
-//Resetting the gameboard between games
-//To reset the game, complete the following steps: * Remove all li elements from the Phrase ul element. * Enable all of the onscreen keyboard buttons
-// and update each to use the key CSS class, and not use the chosen or wrong CSS classes.
-//* Reset all of the heart images (i.e. the player's lives) in the scoreboard at the bottom of the gameboard to display the liveHeart.png image.
 
 function resetBoard() {
   const startScreenOverlay = document.querySelector("#overlay");
@@ -50,8 +40,17 @@ function resetBoard() {
     key.removeAttribute("disabled");
   });
 
-  const hearts = document.querySelectorAll(".tries");
+  const hearts = document.querySelectorAll(".tries img");
   hearts.forEach((heart) => {
-    heart.src = "images/liveHeart.png";
-  });
+  const lostHeart = document.querySelector('img[src="images/lostHeart.png"]');
+  if (lostHeart) {
+    lostHeart.src = "images/liveHeart.png";
+  }
+});
+  // const hearts = document.querySelectorAll(".tries img");
+  // hearts.forEach((heart) => {
+    // if (heart.tagname === 'IMG'){
+    // heart.removeAttribute("src");
+    //   heart.setAttribute('src', "images/liveHeart.png");
+  //});
 }
